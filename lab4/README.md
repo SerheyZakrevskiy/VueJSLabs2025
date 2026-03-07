@@ -1,7 +1,3 @@
-Думал на протяжении 13s
-
-Готовый README.md:
-
 # Лабораторна робота №4
 
 ## Vue 3 + Pinia + Persisted State + i18n + VeeValidate
