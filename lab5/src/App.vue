@@ -1,30 +1,60 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Toast from "primevue/toast";
+
+import AppHeader from "./components/AppHeader.vue";
+import HeroSection from "./components/HeroSection.vue";
+import ProblemSolutionSection from "./components/ProblemSolutionSection.vue";
+import BenefitsSection from "./components/BenefitsSection.vue";
+import HowItWorksSection from "./components/HowItWorksSection.vue";
+import PricingSection from "./components/PricingSection.vue";
+import ReviewsSection from "./components/ReviewsSection.vue";
+import FaqSection from "./components/FaqSection.vue";
+import ContactSection from "./components/ContactSection.vue";
+import AppFooter from "./components/AppFooter.vue";
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <Toast />
+  <AppHeader />
+  <main>
+    <HeroSection />
+    <ProblemSolutionSection />
+    <BenefitsSection />
+    <HowItWorksSection />
+    <PricingSection />
+    <ReviewsSection />
+    <FaqSection />
+    <ContactSection />
+  </main>
+  <AppFooter />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #1f2937;
+  background: #f7f8fa;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+* {
+  box-sizing: border-box;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: 72px 24px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 </style>
