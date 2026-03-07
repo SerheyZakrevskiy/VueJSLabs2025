@@ -1,30 +1,46 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { computed } from "vue";
+import { RouterLink, RouterView } from "vue-router";
+import { useSettingsStore } from "./stores/settings";
+import { useI18n } from "vue-i18n";
+
+const settingsStore = useSettingsStore();
+const { t, locale } = useI18n();
+
+const currentLocale = computed({
+  get: () => settingsStore.locale,
+  set: (value: "ua" | "en") => {
+    settingsStore.setLocale(value);
+    locale.value = value;
+  },
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
+  <div style="max-width: 900px; margin: 0 auto; padding: 24px">
+    <header
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      "
+    >
+      <nav style="display: flex; gap: 16px">
+        <RouterLink to="/products">{{ t("nav.products") }}</RouterLink>
+        <RouterLink to="/cart">{{ t("nav.cart") }}</RouterLink>
+        <RouterLink to="/profile">{{ t("nav.profile") }}</RouterLink>
+      </nav>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+      <div>
+        <label for="locale-select">{{ t("common.language") }}: </label>
+        <select id="locale-select" v-model="currentLocale">
+          <option value="ua">UA</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </header>
+
+    <RouterView />
+  </div>
+</template>

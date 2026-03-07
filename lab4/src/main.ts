@@ -1,5 +1,19 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import App from "./App.vue";
+import router from "./router";
+import { i18n, syncLocaleWithSettings } from "./i18n";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
+
+app.use(pinia);
+syncLocaleWithSettings(pinia);
+
+app.use(i18n);
+app.use(router);
+
+app.mount("#app");
