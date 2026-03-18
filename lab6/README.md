@@ -1,3 +1,7 @@
+# Lab 6 - Nuxt Course Blog
+
+Навчальний mini-blog на **Nuxt 4** з використанням **Nuxt UI**, **useFetch**, server API, dynamic routes, sitemap та robots.
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
@@ -73,3 +77,15 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Screenshots
+
+### 1. Головна сторінка
+
+![alt text](image-1.png)
+_Рисунок 1 – Головна сторінка застосунку Nuxt Course Blog._
+
+### 2. Сторінка блогу
+
+![alt text](image-3.png)
+_Рисунок 2 – Список статей на сторінці Blog._
